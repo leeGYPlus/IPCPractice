@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.IBinder
 import android.os.Message
 import android.os.Messenger
+import android.view.View
 import com.gylee.ipcdemo.MAG_FROM_CLIENT
 import com.gylee.ipcdemo.R
 
@@ -19,7 +20,6 @@ class MessengerActivity : AppCompatActivity() {
     private val connection by lazy {
         object:ServiceConnection{
             override fun onServiceDisconnected(name: ComponentName?) {
-                mService
             }
 
             override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
@@ -28,6 +28,7 @@ class MessengerActivity : AppCompatActivity() {
                 val data = Bundle()
                 data.putString("msg","hello, i am client")
                 message.data = data
+                // Messenger 跨进程发送消息，其中 IMessenger 为 AIDL 文件，借助 Binder 机制实现跨进程通信
                 mService.send(message)
             }
         }
@@ -36,9 +37,12 @@ class MessengerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_messenger)
+
+    }
+
+    fun bindService(view: View) {
         val intent = Intent(this,MessengerService::class.java)
         bindService(intent,connection,Context.BIND_AUTO_CREATE)
-
     }
 
 
@@ -50,4 +54,5 @@ class MessengerActivity : AppCompatActivity() {
     companion object{
         const val TAG = "MessengerActivity"
     }
+
 }
