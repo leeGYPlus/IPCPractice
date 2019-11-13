@@ -2,6 +2,7 @@
 package com.gylee.ipcdemo.aidl;
 
 import com.gylee.ipcdemo.aidl.Book;
+import com.gylee.ipcdemo.aidl.IOnNewBookArriveListener;
 
 // Declare any non-default types here with import statements
 
@@ -12,4 +13,6 @@ interface IBookManager {
      */
     List<Book> obtainBookList();
     void addBook(in Book book);
+    void registerListener(IOnNewBookArriveListener listener);
+    void unregisterListener(IOnNewBookArriveListener listener);
 }
