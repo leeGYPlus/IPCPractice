@@ -6,10 +6,35 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="bindService"
-        android:onClick="bindService"
-        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/binderService"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="bindService"
+        android:text="bindService"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/getBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getBook"
+        android:text="getBook"
+        app:layout_constraintTop_toBottomOf="@id/binderService" />
+
+
+    <Button
+        android:id="@+id/addBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addBook"
+        android:text="addBook"
+        app:layout_constraintTop_toBottomOf="@id/getBook" />
+
+
+    <TextView
+        android:id="@+id/showInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

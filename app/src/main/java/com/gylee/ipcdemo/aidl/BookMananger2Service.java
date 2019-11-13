@@ -32,9 +32,4 @@ public class BookMananger2Service extends Service {
         return mBinder;
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        list.add(new Book(1, "MIke"));
-    }
 }
