@@ -9,20 +9,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messager.MessengerActivity">
+        <service
+            android:name=".aidl.BookMananger2Service"
+            android:enabled="true"
+            android:process=".bookmanager2"
+            android:exported="true"/>
+
+        <activity android:name=".aidl.BookManager2Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".aidl.BookManagerActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
+        <activity android:name=".messager.MessengerActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".MainActivity" />
 
         <service
             android:name=".messager.MessengerService"
             android:process=".messenger" />
+        <service
+            android:name=".aidl.BookManagerService"
+            android:process=".aidl" />
     </application>
 
 </manifest>
