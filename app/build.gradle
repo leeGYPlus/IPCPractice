@@ -22,6 +22,10 @@ android {
         }
     }
     sourceSets { main { aidl.srcDirs = ['src/main/aidl', 'src/main/aidl/'] } }
+    compileOptions {
+        sourceCompatibility = 1.6
+        targetCompatibility = 1.6
+    }
 }
 
 dependencies {
