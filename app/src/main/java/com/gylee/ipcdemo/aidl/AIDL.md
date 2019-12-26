@@ -161,5 +161,5 @@ class AMS extends ActivityManagerNative
 在 AOSP 源码中基本套路就是这些了，不过同时也存在继承 XXXXNative 实现子类，比如 AMS、ApplicationThread，不过我们需要知道的是类名为 XXXXNative 时，为相同进程的调用，
 当类名为 XXXProxy 时，为不同进程的调用，当然这只是针对这种情况而说，并不是说以两者结尾的所有类都是如此的实现。
 
-
+不过在最下版本的源码炸，大部分自定义实现相应的接口基本上都被替换为通过 AIDL 的实现方式。
 

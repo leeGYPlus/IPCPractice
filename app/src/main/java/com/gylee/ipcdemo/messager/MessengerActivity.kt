@@ -15,7 +15,7 @@ import com.gylee.ipcdemo.R
 class MessengerActivity : AppCompatActivity() {
 
     //
-    private lateinit var mService: Messenger
+    private lateinit var messager: Messenger
     private val mGetReplyMessenger:Messenger = Messenger(MessengerHandler())
 
     private val connection by lazy {
@@ -24,14 +24,14 @@ class MessengerActivity : AppCompatActivity() {
             }
 
             override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-                mService = Messenger(service)
+                messager = Messenger(service)
                 val message = Message.obtain(null, MAG_FROM_CLIENT)
                 val data = Bundle()
                 data.putString("msg", "hello, i am client")
                 message.data = data
                 message.replyTo = mGetReplyMessenger
                 // Messenger 跨进程发送消息，其中 IMessenger 为 AIDL 文件，借助 Binder 机制实现跨进程通信
-                mService.send(message)
+                messager.send(message)
             }
         }
     }

@@ -33,8 +33,8 @@ public class BinderPoolActivity extends AppCompatActivity {
         BinderPool binderPool = BinderPool.getInstance(BinderPoolActivity.this);
         IBinder securityBinder = binderPool
                 .queryBinder(BinderPool.BINDER_SECURITY);
-        ;
-        mSecurityCenter = (com.gylee.ipcdemo.binderpool.ISecurityCenter) SecurityCenterImpl
+        // 获得 AIDL 对应的类型接口对象
+        mSecurityCenter =  SecurityCenterImpl
                 .asInterface(securityBinder);
         Log.d(TAG, "visit ISecurityCenter");
         String msg = "helloworld-安卓";
