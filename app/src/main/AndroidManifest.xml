@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -14,9 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".CustomService"
+            android:name=".binderpool.BinderPoolService"
             android:enabled="true"
             android:exported="true"></service>
+
+        <activity android:name=".binderpool.BinderPoolActivity" />
+
+        <service
+            android:name=".CustomService"
+            android:enabled="true"
+            android:exported="true" />
 
         <activity android:name=".TestOreoActivity">
 
