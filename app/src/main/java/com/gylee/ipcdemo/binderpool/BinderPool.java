@@ -9,6 +9,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import java.util.concurrent.CountDownLatch;
+import com.gylee.ipcdemo.binderpool.IBinderPool.Stub;
 
 public class BinderPool {
     private static final String TAG = "BinderPool";
@@ -90,7 +91,7 @@ public class BinderPool {
         return binder;
     }
 
-    public static class BinderPoolImpl extends com.gylee.ipcdemo.binderpool.IBinderPool.Stub{
+    public static class BinderPoolImpl extends Stub{
 
         @Override
         public IBinder queryBinder(int binderCode) throws RemoteException {

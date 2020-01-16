@@ -9,6 +9,7 @@
 # Attempt to set APP_HOME
 # Resolve links: $0 may be a link
 PRG="$0"
+echo "$0"
 # Need this for relative symlinks.
 while [ -h "$PRG" ] ; do
     ls=`ls -ld "$PRG"`
@@ -168,5 +169,6 @@ eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$A
 if [ "$(uname)" = "Darwin" ] && [ "$HOME" = "$PWD" ]; then
   cd "$(dirname "$0")"
 fi
-
+echo  "$JAVACMD"
+echo "$@"
 exec "$JAVACMD" "$@"

@@ -1,8 +1,9 @@
 package com.gylee.ipcdemo.binderpool;
 
 import android.os.RemoteException;
+import com.gylee.ipcdemo.binderpool.ISecurityCenter.Stub;
 
-public class SecurityCenterImpl extends com.gylee.ipcdemo.binderpool.ISecurityCenter.Stub {
+public class SecurityCenterImpl extends Stub {
     private static final char SECRET_CODE = '^';
 
     @Override
